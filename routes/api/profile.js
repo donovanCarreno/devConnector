@@ -126,11 +126,11 @@ router.post('/', passport.authenticate('jwt', { session: false }), (req, res) =>
   if (req.body.linkedin) profileFields.social.linkedin = req.body.linkedin
   if (req.body.instagram) profileFields.social.instagram = req.body.instagram
 
-  Profile.findOne({ users: req.user.id })
+  Profile.findOne({ user: req.user.id })
     .then(profile => {
       if (profile) {
         // Update
-        Profile.findOneAndUpdate({ users: req.user.id }, { $set: profileFields }, { new: true })
+        Profile.findOneAndUpdate({ user: req.user.id }, { $set: profileFields }, { new: true })
           .then(profile => res.json(profile))
       } else {
         // Create
