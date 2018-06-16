@@ -8,8 +8,8 @@ class ProfileGithub extends Component {
   }
 
   state = {
-    clientId: 'aec87c6aee778d471b2d',
-    clientSecret: '45beeabfc60ebd94a2043469b38323a666b8d981',
+    clientId: process.env.REACT_APP_CLIENT_ID,
+    clientSecret: process.env.REACT_APP_CLIENT_SECRET,
     count: 5,
     sort: 'created: asc',
     repos: []
